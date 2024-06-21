@@ -17,7 +17,7 @@ namespace AuthService.Models
         [Required]
         public string Role { get; set; }
 
-        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
 
         public User(string email, string passwordHash, string role)

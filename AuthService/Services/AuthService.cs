@@ -18,7 +18,7 @@ namespace AuthService.Services
             _configuration = configuration;
         }
 
-        public string Authenticate(string email, string password)
+        public string? Authenticate(string email, string password)
         {
             var user = _context.Users.SingleOrDefault(u => u.Email == email && u.PasswordHash == password);
             if (user == null)
