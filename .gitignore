@@ -1,0 +1,139 @@
+.vs
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (Mono Auto Generated)
+mono_crash.*
+
+# Auto generated files (backup)
+*_i.c
+*_p.c
+*_i.h
+*_p.h
+*_p.c
+
+# Build directories
+bin/
+obj/
+
+# NuGet packages
+*.nupkg
+# The packages folder can be ignored because of the presence of package restore
+**/[Pp]ackages/*
+# except build/, which is used as an MSBuild target.
+!**/[Pp]ackages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/[Pp]ackages/repositories.config
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# VS Code directories
+.vscode/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# Rider
+.idea/
+.idea_modules/
+.idea/workspace.xml
+.idea/libraries
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/sonarIssues.xml
+.idea/dictionaries
+.idea/goals.xml
+.idea/.idea_modules/
+
+# Visual Studio files
+.vs/
+.vscode/
+.vscode/settings.json
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Project model server working directory
+.pnpm-store/
+
+# dotnet-vstest self-created directories
+.vstest/
+
+# Windows crash logs
+*.dmp
+
+# Test results
+TestResults/
+
+# NUnit and VsTest result formats
+*.trx
+*.coverage
+*.testlog
+
+# StyleCop
+StyleCopReport.xml
+
+# Docker files
+docker-compose.override.yml
+.docker
+
+# IIS
+.IISExpress
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Mono auto generated files
+mono_crash.*
+
+# NuGet package directories
+**/packages
+# The packages folder can be ignored because of the presence of package restore
+**/[Pp]ackages/*
+# except build/, which is used as an MSBuild target.
+!**/[Pp]ackages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/[Pp]ackages/repositories.config
+
+# DotNet specific
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# StyleCop
+StyleCopReport.xml
+
+# Rider
+.idea/
+.idea_modules/
+.idea/workspace.xml
+.idea/libraries
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/sonarIssues.xml
+.idea/dictionaries
+.idea/goals.xml
+.idea/.idea_modules/

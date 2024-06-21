@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  userservice:
+    build:
+      context: ./UserService
+    ports:
+      - "5001:80"
+    networks:
+      - mynetwork
+
+  productservice:
+    build:
+      context: ./ProductService
+    ports:
+      - "5002:80"
+    networks:
+      - mynetwork
+
+  orderservice:
+    build:
+      context: ./OrderService
+    ports:
+      - "5003:80"
+    networks:
+      - mynetwork
+
+  notificationservice:
+    build:
+      context: ./NotificationService
+    ports:
+      - "5004:80"
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
