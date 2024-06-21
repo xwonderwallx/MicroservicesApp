@@ -35,8 +35,10 @@ namespace AuthService.Tests.Services
         [Test]
         public void Authenticate_ValidUser_ReturnsToken()
         {
+            var email = $"{(new Random()).NextDouble()}@example.com";
+
             // Arrange
-            _context.Users.Add(new User("test@example.com", "password", "User")
+            _context.Users.Add(new User(email, "password", "User")
             {
                 //Id = 1,
                 CreatedDate = DateTime.UtcNow
@@ -44,7 +46,7 @@ namespace AuthService.Tests.Services
             _context.SaveChanges();
 
             // Act
-            var token = _authService.Authenticate("test@example.com", "password");
+            var token = _authService.Authenticate(email, "password");
 
             // Assert
             Assert.IsNotNull(token);

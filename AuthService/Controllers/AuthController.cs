@@ -34,5 +34,15 @@ namespace AuthService.Controllers
 
             return Ok();
         }
+
+        [HttpPost("register")]
+        public IActionResult Register([FromBody] User user)
+        {
+            var isRegistered = _authService.Register(user);
+            if (!isRegistered)
+                return BadRequest("User already exists.");
+
+            return Ok("User registered successfully.");
+        }
     }
 }

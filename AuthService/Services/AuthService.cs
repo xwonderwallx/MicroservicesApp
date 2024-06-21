@@ -27,7 +27,7 @@ namespace AuthService.Services
             }
 
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
+            var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]
@@ -56,7 +56,7 @@ namespace AuthService.Services
         public bool ValidateToken(string token)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
+            var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
 
             try
             {
@@ -75,6 +75,18 @@ namespace AuthService.Services
             {
                 return false;
             }
+        }
+
+        public bool Register(User user)
+        {
+            if (_context.Users.Any(u => u.Email == user.Email))
+            {
+                return false;
+            }
+
+            _context.Users.Add(user);
+            _context.SaveChanges();
+            return true;
         }
     }
 }

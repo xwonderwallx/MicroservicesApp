@@ -130,5 +130,50 @@ namespace AuthService.Tests.Controllers
             // Assert
             Assert.IsInstanceOf<UnauthorizedResult>(result);
         }
+
+        [Test]
+        public void Register_NewUser_ReturnsOk()
+        {
+            // Arrange
+            var email = "newuser@example.com";
+            var password = "password";
+
+            var user = new User(email, password, "User")
+            {
+                CreatedDate = DateTime.UtcNow
+            };
+
+            // Act
+            var result = _controller.Register(user);
+
+            // Assert
+            Assert.IsInstanceOf<OkObjectResult>(result);
+            var okResult = result as OkObjectResult;
+            Assert.AreEqual("User registered successfully.", okResult.Value);
+        }
+
+        [Test]
+        public void Register_ExistingUser_ReturnsBadRequest()
+        {
+            // Arrange
+            var email = "test@example.com";
+            var password = "password";
+
+            var user = new User(email, password, "User")
+            {
+                CreatedDate = DateTime.UtcNow
+            };
+
+            _context.Users.Add(user);
+            _context.SaveChanges();
+
+            // Act
+            var result = _controller.Register(user);
+
+            // Assert
+            Assert.IsInstanceOf<BadRequestObjectResult>(result);
+            var badRequestResult = result as BadRequestObjectResult;
+            Assert.AreEqual("User already exists.", badRequestResult.Value);
+        }
     }
 }
