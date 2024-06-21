@@ -38,7 +38,7 @@ namespace AuthService.Tests.Services
             // Arrange
             _context.Users.Add(new User("test@example.com", "password", "User")
             {
-                Id = 1,
+                //Id = 1,
                 CreatedDate = DateTime.UtcNow
             });
             _context.SaveChanges();
@@ -66,13 +66,13 @@ namespace AuthService.Tests.Services
         [Test]
         public void ValidateToken_ValidToken_ReturnsTrue()
         {
-            var email = "test1@example.com";
+            var email = "test2@example.com";
             var password = "password";
 
             // Arrange
             _context.Users.Add(new User(email, password, "User")
             {
-                Id = 2,
+                //Id = 3,
                 CreatedDate = DateTime.UtcNow
             });
             _context.SaveChanges();
