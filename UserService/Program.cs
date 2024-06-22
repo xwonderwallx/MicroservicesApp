@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using UserService.Data;
+using UserService.Services;
 
 namespace UserService
 {
@@ -18,6 +19,12 @@ namespace UserService
 
             builder.Services.AddDbContext<UserContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            // Register AuthServiceClient for HTTP requests to AuthService
+            builder.Services.AddHttpClient<AuthServiceClient>(client =>
+            {
+                client.BaseAddress = new Uri(builder.Configuration["AuthService:BaseUrl"]);
+            });
 
 
             var app = builder.Build();

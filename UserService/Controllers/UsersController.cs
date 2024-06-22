@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using UserService.Data;
 using UserService.Models;
+using UserService.Services;
 
 namespace UserService.Controllers
 {
@@ -10,10 +11,12 @@ namespace UserService.Controllers
     public class UsersController : ControllerBase
     {
         private readonly UserContext _context;
+        private readonly AuthServiceClient _authServiceClient;
 
-        public UsersController(UserContext context)
+        public UsersController(UserContext context, AuthServiceClient authServiceClient)
         {
             _context = context;
+            _authServiceClient = authServiceClient;
         }
 
         // GET: api/Users
@@ -43,6 +46,9 @@ namespace UserService.Controllers
         {
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
+
+            // Register user in AuthService
+            var authResult = await _authServiceClient.RegisterUserAsync(user);
 
             return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
         }
