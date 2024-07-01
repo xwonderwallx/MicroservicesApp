@@ -32,6 +32,20 @@ services:
       - "5004:80"
     networks:
       - mynetwork
+      
+  authservice:
+    build:
+      context: ./AuthService
+    ports:
+      - "5005:80"
+    networks:
+      - mynetwork
+      
+ rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
 
 networks:
   mynetwork:

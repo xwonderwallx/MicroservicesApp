@@ -137,3 +137,5 @@ StyleCopReport.xml
 .idea/dictionaries
 .idea/goals.xml
 .idea/.idea_modules/
+
+*.bak

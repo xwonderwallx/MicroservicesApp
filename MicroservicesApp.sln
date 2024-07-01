@@ -11,11 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderService", "OrderServic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotificationService", "NotificationService\NotificationService.csproj", "{851AD0F4-4D03-42C1-94CE-891D0E62D051}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{62861890-54FD-40D9-A48E-DFD7F3A76283}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthService", "AuthService\AuthService.csproj", "{63537776-58DC-4078-9C86-C856C7406B41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthService.Tests", "AuthService.Tests\AuthService.Tests.csproj", "{3E103034-D892-4B3B-B8B9-36DBA89AE3D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthService.Tests", "AuthService.Tests\AuthService.Tests.csproj", "{3E103034-D892-4B3B-B8B9-36DBA89AE3D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FB23CF6A-B2D6-4C6E-953F-9FCB50050AC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +50,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3E103034-D892-4B3B-B8B9-36DBA89AE3D7} = {FB23CF6A-B2D6-4C6E-953F-9FCB50050AC3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {08EC42B9-AA02-4823-8363-B61768C92E0C}
