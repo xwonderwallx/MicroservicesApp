@@ -8,6 +8,10 @@ services:
       - "5001:80"
     networks:
       - mynetwork
+    volumes:
+      - ./certs/ca.crt:/etc/ssl/certs/ca.crt
+      - ./certs/server.crt:/etc/ssl/certs/server.crt
+      - ./certs/server.key:/etc/ssl/private/server.key
 
   productservice:
     build:
@@ -16,6 +20,10 @@ services:
       - "5002:80"
     networks:
       - mynetwork
+    volumes:
+      - ./certs/ca.crt:/etc/ssl/certs/ca.crt
+      - ./certs/server.crt:/etc/ssl/certs/server.crt
+      - ./certs/server.key:/etc/ssl/private/server.key
 
   orderservice:
     build:
@@ -24,6 +32,10 @@ services:
       - "5003:80"
     networks:
       - mynetwork
+    volumes:
+      - ./certs/ca.crt:/etc/ssl/certs/ca.crt
+      - ./certs/server.crt:/etc/ssl/certs/server.crt
+      - ./certs/server.key:/etc/ssl/private/server.key
 
   notificationservice:
     build:
@@ -32,6 +44,10 @@ services:
       - "5004:80"
     networks:
       - mynetwork
+    volumes:
+      - ./certs/ca.crt:/etc/ssl/certs/ca.crt
+      - ./certs/server.crt:/etc/ssl/certs/server.crt
+      - ./certs/server.key:/etc/ssl/private/server.key
       
   authservice:
     build:
@@ -40,6 +56,20 @@ services:
       - "5005:80"
     networks:
       - mynetwork
+    volumes:
+      - ./certs/ca.crt:/etc/ssl/certs/ca.crt
+      - ./certs/server.crt:/etc/ssl/certs/server.crt
+      - ./certs/server.key:/etc/ssl/private/server.key
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - ./certs/ca.crt:/etc/rabbitmq/ca.crt
+      - ./certs/server.crt:/etc/rabbitmq/server.crt
+      - ./certs/server.key:/etc/rabbitmq/server.key
 
 networks:
   mynetwork:

@@ -3,21 +3,19 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 
-namespace UserService.Models
+namespace UserService.Models.Database
 {
-    public class Admin
+    public class Admin : User
     {
-        [Key]
-        public int Id { get; set; }
-        [Required]
-        public string? Permissions { get; set; }
-        [ForeignKey(nameof(UserId))]
-        public int UserId { get; set; }
+        [ForeignKey(nameof(PermissionId))]
+        public string PermissionId { get; set; }
+
         [AllowNull]
         public DateTime CreatedDate { get; set; }
+
         [AllowNull] 
         public DateTime? UpdatedDate { get; set; }
 
-        public virtual User? User { get; set; }
+        public virtual Permission? Permission { get; set; }
     }
 }
